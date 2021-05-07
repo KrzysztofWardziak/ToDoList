@@ -37,10 +37,11 @@ namespace ToDoList.Infrastructure.Repository
         public void UpdateTask(ToDo todo)
         {
             _context.Attach(todo);
-            _context.Attach(todo).Property("Title").IsModified = true;
-            _context.Attach(todo).Property("Description").IsModified = true;
-            _context.Attach(todo).Property("IsDone").IsModified = true;
-            _context.Attach(todo).Property("ModifiedDate").IsModified = true;
+            _context.Entry(todo).Property("Title").IsModified = true;
+            _context.Entry(todo).Property("Description").IsModified = true;
+            _context.Entry(todo).Property("IsDone").IsModified = true;
+            _context.Entry(todo).Property("ModifiedDate").IsModified = true;
+            _context.SaveChanges();
         }
 
         public void DeleteTask(int id)

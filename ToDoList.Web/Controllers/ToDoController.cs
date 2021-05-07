@@ -37,7 +37,7 @@ namespace ToDoList.Web.Controllers
             return View(new ToDoVm());
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult AddTask(ToDoVm model)
         {
             if (ModelState.IsValid)
@@ -48,5 +48,36 @@ namespace ToDoList.Web.Controllers
 
             return View(model);
         }
+
+        public IActionResult EditTask(int id)
+        {
+            var task = _toDoService.GetTaskDetails(id);
+            return View(task);
+        }
+
+        [HttpPost]
+        public IActionResult EditTask(ToDoVm model)
+        {
+            if (ModelState.IsValid)
+            {
+                _toDoService.UpdateTask(model);
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var task = _toDoService.GetTaskDetails(id);
+            return View(task);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            _toDoService.DeleteTask(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

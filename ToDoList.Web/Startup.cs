@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using ToDoList.Application;
 using ToDoList.Infrastructure;
 
 namespace ToDoList.Web
@@ -30,6 +31,7 @@ namespace ToDoList.Web
             services.AddControllersWithViews();
 
             services.AddInfrastructure();
+            services.AddApplication();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +58,7 @@ namespace ToDoList.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=ToDo}/{action=Index}/{id?}");
             });
         }
     }
