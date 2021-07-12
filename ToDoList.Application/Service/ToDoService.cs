@@ -64,13 +64,5 @@ namespace ToDoList.Application.Service
             var task = _mapper.Map<ToDo>(model);
             _toDoRepository.UpdateTask(task);
         }
-
-        public void EditTask(ToDoVm model)
-        {
-            var date = DateTime.Now.ToString("D");
-            model.ModifiedDate = date;
-            var task = _mapper.Map<ToDo>(model);
-            _toDoRepository.UpdateTask(task);
-        }
     }
 }
