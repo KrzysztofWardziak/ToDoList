@@ -67,7 +67,8 @@ namespace ToDoList.Application.Service
 
         public void EditTask(ToDoVm model)
         {
-            throw new NotImplementedException();
+            var task = _toDoRepository.GetTask(model.Id);
+            var taskVm = _mapper.Map<ToDoVm>(task);
         }
     }
 }
