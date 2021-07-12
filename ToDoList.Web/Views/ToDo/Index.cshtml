@@ -35,12 +35,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
-            <td>
-                <input type="checkbox" checked="@item.IsDone" onclick="window.location.href ='/ToDO/ToggleIsDone/@item.Id';" />
-                <a href="/ToDo/Details/@item.Id">
-                    @item.Title
-                </a>
-            </td>
+                <td>
+                    @* TODO in future ToDo/ToggleIsDone !!! *@
+                    <input type="checkbox" checked="@item.IsDone" @* onclick="window.location.href ='/ToDO/ToggleIsDone/@item.Id';"  *@/>
+                    <a href="/ToDo/Details/@item.Id">
+                        @item.Title
+                    </a>
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
