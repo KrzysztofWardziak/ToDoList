@@ -13,5 +13,6 @@ namespace ToDoList.Domain.InterfaceRepository
         int AddTask(ToDo todo);
         void UpdateTask(ToDo todo);
         void DeleteTask(int id);
+        ToDo GetTaskById(int id);
     }
 }

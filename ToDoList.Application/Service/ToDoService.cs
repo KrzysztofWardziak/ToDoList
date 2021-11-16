@@ -64,5 +64,12 @@ namespace ToDoList.Application.Service
             var task = _mapper.Map<ToDo>(model);
             _toDoRepository.UpdateTask(task);
         }
+
+        public ToDoVm GetTaskById(int id)
+        {
+            var task = _toDoRepository.GetTaskById(id);
+            var taskVm = _mapper.Map<ToDoVm>(task);
+            return taskVm; 
+        }
     }
 }

@@ -16,6 +16,11 @@ namespace ToDoList.Infrastructure.Repository
             _context = context;
         }
 
+        public ToDoRepository()
+        {
+            
+        }
+
         public IQueryable<ToDo> GetAllTasks()
         {
             return _context.ToDoLists;
@@ -52,6 +57,17 @@ namespace ToDoList.Infrastructure.Repository
                 _context.ToDoLists.Remove(task);
                 _context.SaveChanges();
             }
+        }
+
+        public ToDo GetTaskById(int id)
+        {
+            var task = _context.ToDoLists.FirstOrDefault(x => x.Id == id);
+            if (task != null)
+            {
+                return task;
+            }
+
+            throw new Exception($"Could not find task with id {id}");
         }
     }
 }

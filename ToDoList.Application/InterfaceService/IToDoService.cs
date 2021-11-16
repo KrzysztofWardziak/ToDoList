@@ -12,5 +12,6 @@ namespace ToDoList.Application.InterfaceService
         ToDoVm GetTaskDetails(int todoId);
         void DeleteTask(int id);
         void UpdateTask(ToDoVm model);
+        ToDoVm GetTaskById(int id);
     }
 }
